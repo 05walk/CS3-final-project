@@ -1,13 +1,15 @@
 //Sarah Walker
 //Final Project
 //HomeworkSuveyClient
+//Version 2
 //10 May 2015
 
-import java.util.*;
+import java.util.*; 
 
 public class HomeworkSurveyClient2
 {
-   /** 
+   /**
+    *This is an array of Days for the month.  
     */
    public static Day[] thisMonth;
    
@@ -22,7 +24,7 @@ public class HomeworkSurveyClient2
    public static final int minDays = 28;
    
    /** 
-    *This is the maximum days in a month
+    *This is the maximum days in a month.
     */
    public static final int maxDays = 31; 
    
@@ -31,17 +33,25 @@ public class HomeworkSurveyClient2
     */
    public static String[] classes;
    
+   /** 
+    *This is the outline of the program. 
+    *It calls the intro which gives a brief overview of the program.
+    *It creates a scanner to be used to interact with the user throughout the program. 
+    *It then sets the program up for the month. 
+    *The hours are added once a day. 
+    *@param args not used for this program 
+    */
    public static void main(String args[]) 
    {
       intro();
       Scanner input = new Scanner(System.in);
       setup(input);
       addTodaysHours(input);
-      addTodaysHours(input);
-      //addTodaysHours(input);
-      printData();
    }
    
+   /** 
+    *This is the intro to the program. 
+    */
    public static void intro()
    {
       System.out.println("This program helps you track the hours you spend doing homework for each");
@@ -51,6 +61,13 @@ public class HomeworkSurveyClient2
       System.out.println("be given the data from the entire month.\n");
    }
    
+   /** 
+    *This method sets up the program by asking the user for how many classes they are taking
+    *and the names of those classes. 
+    *It also asks for the amount of days in this month 
+    *and initializes the array of days to be that size.
+    *@param input the Scanner needed to interact with the user
+    */
    public static void setup(Scanner input)
    {
       int numClasses = askUserInt(input, "How many classes are you taking? ", 0, maxClasses);
@@ -147,7 +164,13 @@ public class HomeworkSurveyClient2
      }
    }
 
-   
+   /** 
+    *This method adds the hours for the current day. 
+    *It asks the user what day it is and then how many hours they spent on each class. 
+    *It then calls the askAboutTodaysChart method. 
+    *If it is the end of the month, it will call the printData method. 
+    *@param input the Scanner needed to interact with the user.
+    */
    public static void addTodaysHours(Scanner input)
    {
       int day = askUserInt(input, "What day of the month is it? ", 0, thisMonth.length);
@@ -159,6 +182,10 @@ public class HomeworkSurveyClient2
       }
       System.out.println();
       askAboutTodaysChart(input,thisMonth[day].getHours());
+      if(day==thisMonth.length)
+      {
+         printData();
+      }
       
    }
    
@@ -166,12 +193,7 @@ public class HomeworkSurveyClient2
    *This method asks the user if they want to see a chart for today's homework.  
    *If they do, then it calls the playGame method. 
    *@param input the Scanner needed to interact with the user
-   *@param r the Random object needed for the computer to make its choice
-   *@param winner the 2D array with the winners of all of the possible outcomes
-   *@param verbs the 2D array with the verbs for all of the possible outcomes
-   *@param picks the array that is updated every time the game is played with what the user and computer chose
-   *@param record the array that is updated with the record of the winners of the games 
-   *@return true is returned once the user no longer wants to play again 
+   *@param hours the array of hours from that day 
    */   
   public static void askAboutTodaysChart (Scanner input, double[] hours)
    {
@@ -181,8 +203,13 @@ public class HomeworkSurveyClient2
         CreateDayChartClient.createDayChart(classes, hours);
       }
    }
-   public static void printData()
+  
+  /** 
+   *This method prints the data from the entire month. 
+   */ 
+  public static void printData()
    {
+      System.out.println("Here is the homework data from this month");
       for(int i = 0; i<thisMonth.length; i++)
       {
          if(thisMonth[i]!=null)
