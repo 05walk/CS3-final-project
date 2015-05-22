@@ -23,18 +23,18 @@ public class LineChart_AWT extends ApplicationFrame
       chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
       setContentPane( chartPanel );
    }
-
-   private DefaultCategoryDataset createDataset( )
-   {
-      DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-      dataset.addValue( 15 , "schools" , "1970" );
-      dataset.addValue(  0, "schools" , "1980" );
-      dataset.addValue( 60 , "schools" ,  "1990" );
-      dataset.addValue( 120 , "schools" , "2000" );
-      dataset.addValue( 240 , "schools" , "2010" );
-      dataset.addValue( 300 , "schools" , "2014" );
-      return dataset;
-   }
+//this is their example, but I created my own dataset in my client program 
+//    private DefaultCategoryDataset createDataset( )
+//    {
+//       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+//       dataset.addValue( 15 , "schools" , "1970" );
+//       dataset.addValue(  0, "schools" , "1980" );
+//       dataset.addValue( 60 , "schools" ,  "1990" );
+//       dataset.addValue( 120 , "schools" , "2000" );
+//       dataset.addValue( 240 , "schools" , "2010" );
+//       dataset.addValue( 300 , "schools" , "2014" );
+//       return dataset;
+//    }
    // public static void main( String[ ] args ) 
 //    {
 //       LineChart_AWT chart = new LineChart_AWT(
@@ -46,3 +46,5 @@ public class LineChart_AWT extends ApplicationFrame
 //       chart.setVisible( true );
 //    }
 }
+
+//based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm

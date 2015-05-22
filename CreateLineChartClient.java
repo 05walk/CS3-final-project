@@ -60,7 +60,8 @@ public class CreateLineChartClient
       {
          if (month[i]!=null)
          {
-            dataset.addValue(month[i].getTotal(), "day", "Day " + i);
+            dataset.addValue(month[i].getTotal(), "month", "Day " + i); //parameters have to be in this order
+            // for graph to work 
          }
       }
       return dataset;

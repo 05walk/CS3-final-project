@@ -10,8 +10,16 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset; 
 import org.jfree.data.category.DefaultCategoryDataset; 
 import org.jfree.ui.ApplicationFrame; 
-import org.jfree.ui.RefineryUtilities; 
-public class CreateDayChartClient //these are all needed to create the bar chart 
+import org.jfree.ui.RefineryUtilities; //these are all needed to create the bar chart
+
+/**
+ *based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm
+ *I used this tutorial website to learn jFreeChart. I used their code to help me understand it (what
+ *is commented out below), and then I kept their constructor but modified it to be more compatible 
+ *with my other files. 
+ */ 
+ 
+public class CreateDayChartClient 
 {
       /** 
        *This main method is just used for unit testing. 
@@ -64,5 +72,3 @@ public class CreateDayChartClient //these are all needed to create the bar chart
    }
 
 }
-
-//based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm

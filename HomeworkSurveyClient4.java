@@ -46,8 +46,8 @@ public class HomeworkSurveyClient4
    {
       intro();
       Scanner input = new Scanner(System.in);
-      Scanner fileScan=openFile("output4.txt");
-      setup(input);
+      Scanner fileScan=openFile("output.txt");
+      setup(fileScan);
       if (fileScan!=null)
       {
          for (int i =0; i<thisMonth.length; i++)
@@ -77,16 +77,19 @@ public class HomeworkSurveyClient4
     *and initializes the array of days to be that size.
     *@param input the Scanner needed to interact with the user
     */
-   public static void setup(Scanner input)
+   public static void setup(Scanner fileScan)
    {
-      int numClasses = askUserInt(input, "How many classes are you taking? ", 0, maxClasses);
+      String line = readFile(fileScan);
+      int numClasses = Integer.valueOf(line); 
       classes= new String[numClasses];
+      String names = readFile(fileScan);
+      Scanner lineScan = new Scanner(names);
       for (int i=1; i<=numClasses; i++)
       {
-         classes[i-1]= askUserString(input, "Class " + i +" name? ");
+         classes[i-1]= lineScan.next(); 
       }
       System.out.println();
-      int daysInMonth = askUserInt(input, "How many days are in this month? ", minDays, maxDays); 
+      int daysInMonth = Integer.valueOf(readFile(fileScan));
       thisMonth = new Day[daysInMonth];     
       System.out.println();
    }
@@ -241,21 +244,6 @@ public class HomeworkSurveyClient4
          printData();
       }
       
-   }
-   
-  /** 
-   *This method asks the user if they want to see a chart for today's homework.  
-   *If they do, then it calls the playGame method. 
-   *@param input the Scanner needed to interact with the user
-   *@param hours the array of hours from that day 
-   */   
-  public static void askAboutTodaysChart (Scanner input, double[] hours)
-   {
-      String answer= askUserString(input, "Would you like to see a graph of today's hours (yes/no)? ");
-      if(answer.startsWith("y")||answer.startsWith("Y"))
-      {
-        CreateDayChartClient.createDayChart(classes, hours);
-      }
    }
   
   /** 

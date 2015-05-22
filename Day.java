@@ -49,7 +49,8 @@ public class Day
    }
    
    /** 
-    *This method returns the total number of hours for this day. 
+    *This method returns the total number of hours for this day.
+    *It rounds it to two decimal places. 
     */
    public double getTotal()
    {

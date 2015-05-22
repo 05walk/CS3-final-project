@@ -4,7 +4,7 @@
 //Version 3
 //10 May 2015
 
-import java.util.*; 
+import java.util.*; //for the arrays
 
 public class HomeworkSurveyClient3
 {

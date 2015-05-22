@@ -1,3 +1,13 @@
+//Sarah Walker
+//Final project 
+
+/**
+ *based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm
+ *I used this tutorial website to learn jFreeChart. I used their code to help me understand it (what
+ *is commented out below), and then I kept their constructor but modified it to be more compatible 
+ *with my other files. 
+ */ 
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel; 
 import org.jfree.chart.JFreeChart; 
@@ -5,7 +15,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset; 
 import org.jfree.data.category.DefaultCategoryDataset; 
 import org.jfree.ui.ApplicationFrame; 
-import org.jfree.ui.RefineryUtilities; 
+import org.jfree.ui.RefineryUtilities; //all of these are needed for creating the chart 
 
 public class BarChart_AWT extends ApplicationFrame
 {
@@ -17,7 +27,7 @@ public class BarChart_AWT extends ApplicationFrame
          chartTitle,           
          xTitle,            
          yTitle,            
-         dataset,        //was createDataSet();  
+         dataset,       
          PlotOrientation.VERTICAL,           
          true, true, false);
          
@@ -25,6 +35,7 @@ public class BarChart_AWT extends ApplicationFrame
       chartPanel.setPreferredSize(new java.awt.Dimension( 560 , 367 ) );        
       setContentPane( chartPanel ); 
    }
+   //this is their example, but I created my own dataset in my client 
    // private CategoryDataset createDataset( )
 //    {
 //       final String fiat = "FIAT";        
