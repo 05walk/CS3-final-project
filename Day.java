@@ -53,7 +53,7 @@ public class Day
     */
    public double getTotal()
    {
-      return total;
+      return Math.round(total*100)/100.00;
    }
 
 }
