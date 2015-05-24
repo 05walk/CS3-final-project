@@ -66,7 +66,7 @@ public class CreateDayChartClient
       final DefaultCategoryDataset dataset=new DefaultCategoryDataset( );
       for(int i =0; i<classes.length; i++)
       {
-         dataset.addValue(hours[i], classes[i], "class");
+         dataset.addValue(hours[i], classes[i], "class"); //the first parameter is a double, the other two are Strings
       }
       return dataset;
    }

@@ -28,7 +28,7 @@ public class BarChart_AWT extends ApplicationFrame
          xTitle,            
          yTitle,            
          dataset,       
-         PlotOrientation.VERTICAL,           
+         PlotOrientation.VERTICAL, //this means that the scaled axis is the y-axis          
          true, true, false);
          
       ChartPanel chartPanel = new ChartPanel( barChart );        

@@ -111,41 +111,6 @@ public class HomeworkSurveyClient
      }
    }
    
-   /**
-    *This method is used to collect all of the double inputs needed from the user.
-    *It checks to make sure that before it returns the user has inputed an integer 
-    *within the appropriate range. 
-    *@param input the Scanner needed to interact with the user
-    *@param prompt the prompt to display to the user
-    *@param min the minimum int that can be accepted
-    *@param max the max int that can be accepted 
-    *@return the integer given by the user
-    */
-   public static int askUserInt(Scanner input, String prompt,int min, int max)
-   {
-   while (true) 
-      {
-      System.out.print(prompt);
-      int number =0; 
-      while(!input.hasNextInt())
-      {
-       System.out.println("Input is not valid, you need to enter a number.");
-       input.next();//if this is input.nextLine(), when you give an int and then a letter, it asks reprompts twice 
-                    //before getting an answer
-                    //this will break if there is more than one token inputed by the user
-       System.out.print(prompt);
-      }
-      number=input.nextInt();
-      if (number<min||number>max){
-         System.out.println("Input is not valid, you need to enter a number between " +min +" and "+ max +".");
-         }
-      if(number>=min&&number<=max){
-         return number; 
-         }
-     }
-   }
-
-   
    public static void addTodaysHours(Scanner input)
    {
       int day = askUserInt(input, "What day of the month is it? ", 0, thisMonth.length);
@@ -164,7 +129,7 @@ public class HomeworkSurveyClient
       {
          if(thisMonth[i]!=null)
          {
-            int[] time = thisMonth[i].getHours();
+            double[] time = thisMonth[i].getHours();
             for (int j = 0; j<classes.length; j++)
             {
                System.out.println(classes[j] + ": " + time[j] + " hours");

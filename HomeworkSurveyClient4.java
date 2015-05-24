@@ -7,6 +7,9 @@
 import java.util.*; 
 import java.io.*;
 
+/** 
+ *This client is all file-based and creates a chart of the month's data. 
+ */
 public class HomeworkSurveyClient4
 {
    /**
@@ -48,7 +51,7 @@ public class HomeworkSurveyClient4
       Scanner input = new Scanner(System.in);
       Scanner fileScan=openFile("output.txt");
       setup(fileScan);
-      if (fileScan!=null)
+      if (fileScan!=null)//extra precaution
       {
          for (int i =0; i<thisMonth.length; i++)
          {
@@ -75,7 +78,7 @@ public class HomeworkSurveyClient4
     *and the names of those classes. 
     *It also asks for the amount of days in this month 
     *and initializes the array of days to be that size.
-    *@param input the Scanner needed to interact with the user
+    *@param fileScan the Scanner needed to read the file
     */
    public static void setup(Scanner fileScan)
    {
@@ -83,7 +86,7 @@ public class HomeworkSurveyClient4
       int numClasses = Integer.valueOf(line); 
       classes= new String[numClasses];
       String names = readFile(fileScan);
-      Scanner lineScan = new Scanner(names);
+      Scanner lineScan = new Scanner(names); //creates new Scanner to parse through the line
       for (int i=1; i<=numClasses; i++)
       {
          classes[i-1]= lineScan.next(); 
@@ -120,7 +123,6 @@ public class HomeworkSurveyClient4
     *It scans the entire file until it finds the name requested or it reaches the end of the file. 
     *It also prints out the name if it is found. 
     *@param fileScan the Scanner on the file
-    *@param name the name the user wants information about
     *@return the information on the line following the name (or null if no info)
     */
    public static String readFile(Scanner fileScan)
@@ -145,7 +147,7 @@ public class HomeworkSurveyClient4
    public static String askUserString(Scanner input, String prompt)
    {
       System.out.print(prompt);
-      return input.nextLine();//can't accept more than one token, should fix!!!! (nextLine is a problem with int first)
+      return input.nextLine();
    }
    
    /**
@@ -172,7 +174,7 @@ public class HomeworkSurveyClient4
       }
       number=input.nextDouble();
       input.nextLine();
-      if (number<min||number>max){//will this still work? 
+      if (number<min||number>max){
          System.out.println("Input is not valid, you need to enter a number between " +min +" and "+ max +".");
          }
       if(number>=min&&number<=max){
@@ -200,9 +202,7 @@ public class HomeworkSurveyClient4
       while(!input.hasNextInt())
       {
        System.out.println("Input is not valid, you need to enter a number.");
-       input.nextLine();//if this is input.nextLine(), when you give an int and then a letter, it asks reprompts twice 
-                    //before getting an answer
-                    //this will break if there is more than one token inputed by the user
+       input.nextLine();
        System.out.print(prompt);
       }
       number=input.nextInt();
@@ -221,11 +221,11 @@ public class HomeworkSurveyClient4
     *It asks the user what day it is and then how many hours they spent on each class. 
     *It then calls the askAboutTodaysChart method. 
     *If it is the end of the month, it will call the printData method. 
-    *@param input the Scanner needed to interact with the user.
+    *@param day the day of the month that it is 
+    *@param fileScan the Scanner needed to read the File
     */
    public static void addTodaysHours(int day,Scanner fileScan)
    {
-      //int day = askUserInt(input, "What day of the month is it? ", 0, thisMonth.length);
       thisMonth[day]= new Day(classes.length);
       String line = readFile(fileScan);
       Scanner lineScan = new Scanner(line);
@@ -236,9 +236,7 @@ public class HomeworkSurveyClient4
          thisMonth[day].addTime(x, time);
          x++;
       }
-         //double time = askUserDouble(input, "How many hours did you spend on " + classes[i] + "? ", 0, 12); //can spend max 12 hours
       System.out.println();
-      //askAboutTodaysChart(input,thisMonth[day-1].getHours());
       if((day+1)==thisMonth.length)
       {
          printData();

@@ -1,10 +1,20 @@
+//Sarah Walker
+//Final project
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset; //needed to create the chart
+
+/**
+ *based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm
+ *I used this tutorial website to learn jFreeChart. I used their code to help me understand it (what
+ *is commented out below), and then I kept their constructor but modified it to be more compatible 
+ *with my other files. 
+ */ 
 
 public class LineChart_AWT extends ApplicationFrame
 {
@@ -16,7 +26,7 @@ public class LineChart_AWT extends ApplicationFrame
          chartTitle,
          xTitle,yTitle,
          dataset,
-         PlotOrientation.VERTICAL,
+         PlotOrientation.VERTICAL, //this means that the scaled axis is the y-axis
          true,true,false);
          
       ChartPanel chartPanel = new ChartPanel( lineChart );
@@ -46,5 +56,3 @@ public class LineChart_AWT extends ApplicationFrame
 //       chart.setVisible( true );
 //    }
 }
-
-//based on code from http://www.tutorialspoint.com/jfreechart/jfreechart_bar_chart.htm

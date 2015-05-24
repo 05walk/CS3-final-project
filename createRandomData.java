@@ -18,7 +18,7 @@ public class createRandomData
    /** 
     *This is the number of classes the student is taking. 
     */
-   public static final int CLASSES = 6; 
+   public static final int CLASSES = 6;
    
    /** 
     *This is an outline of the program. 
@@ -63,15 +63,15 @@ public class createRandomData
     */
    private static void writeToFile(Random r, PrintStream output)
    {
-      output.println("6");
-      output.println("Math English Chem CS History Spanish");
-      output.println("31");
+      output.println(CLASSES);
+      output.println("Math English Chem CS History Spanish"); //random class names
+      output.println(DAYS); 
       for (int i = 0; i<DAYS; i++)
       {
          String line="";
          for (int j=0; j<CLASSES; j++)
          {
-            line += Math.round(r.nextDouble()*100)/20.00 + " ";
+            line += Math.round(r.nextDouble()*100)/20.00 + " "; //rounds to 2 decimal places 
          }
          output.println(line);
       }

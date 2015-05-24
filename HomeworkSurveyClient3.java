@@ -6,6 +6,9 @@
 
 import java.util.*; //for the arrays
 
+/** 
+ *This client is all user-input based and creates a graph of the day's data. 
+ */
 public class HomeworkSurveyClient3
 {
    /**
@@ -45,11 +48,8 @@ public class HomeworkSurveyClient3
    {
       intro();
       Scanner input = new Scanner(System.in);
-      setup(input);
+      setup(input); ;//this gets data for one day 
       addTodaysHours(input);
-      addTodaysHours(input);
-      addTodaysHours(input);
-      CreateLineChartClient.createMonthChart(thisMonth);
    }
    
    /** 
@@ -94,7 +94,7 @@ public class HomeworkSurveyClient3
    public static String askUserString(Scanner input, String prompt)
    {
       System.out.print(prompt);
-      return input.nextLine();//can't accept more than one token, should fix!!!! (nextLine is a problem with int first)
+      return input.nextLine();
    }
    
    /**
@@ -121,7 +121,7 @@ public class HomeworkSurveyClient3
       }
       number=input.nextDouble();
       input.nextLine();
-      if (number<min||number>max){//will this still work? 
+      if (number<min||number>max){ 
          System.out.println("Input is not valid, you need to enter a number between " +min +" and "+ max +".");
          }
       if(number>=min&&number<=max){
@@ -149,9 +149,7 @@ public class HomeworkSurveyClient3
       while(!input.hasNextInt())
       {
        System.out.println("Input is not valid, you need to enter a number.");
-       input.nextLine();//if this is input.nextLine(), when you give an int and then a letter, it asks reprompts twice 
-                    //before getting an answer
-                    //this will break if there is more than one token inputed by the user
+       input.nextLine();
        System.out.print(prompt);
       }
       number=input.nextInt();
@@ -207,6 +205,7 @@ public class HomeworkSurveyClient3
   
   /** 
    *This method prints the data from the entire month. 
+   *currently not used for this version of the client.
    */ 
   public static void printData()
    {
